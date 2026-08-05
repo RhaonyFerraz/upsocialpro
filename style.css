@@ -74,6 +74,31 @@ body {
     overflow-x: hidden;
 }
 
+/* Particles Canvas */
+#particles-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.6;
+}
+
+/* Hero Background Image */
+.hero-bg-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: url('hero-bg.png') center center / cover no-repeat;
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 0;
+}
+
 .container {
     width: 100%;
     max-width: 1200px;
@@ -148,6 +173,21 @@ body {
     white-space: nowrap;
 }
 
+/* Live dot pulse */
+.live-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: livePulse 1.5s infinite;
+}
+
+@keyframes livePulse {
+    0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 rgba(16,185,129,0.7); }
+    50% { opacity: 0.7; transform: scale(1.2); box-shadow: 0 0 0 5px rgba(16,185,129,0); }
+}
+
 .pulse-icon {
     font-size: 8px;
     animation: pulseGlow 1.5s infinite;
@@ -159,6 +199,9 @@ body {
 }
 
 .support-speed {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
     color: var(--cyan);
     font-weight: 600;
     font-size: 12px;
@@ -193,13 +236,21 @@ header {
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
     text-decoration: none;
-    font-family: var(--font-heading);
-    font-size: 24px;
-    font-weight: 800;
-    color: var(--text-primary);
-    letter-spacing: -0.5px;
+    transition: var(--transition);
+}
+
+.logo:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+}
+
+.logo-img {
+    height: 44px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0 0 12px rgba(139,92,246,0.5));
 }
 
 .logo-icon {
@@ -1949,5 +2000,328 @@ footer {
 
     .range-marks {
         font-size: 10px;
+    }
+}
+
+/* =====================================================
+   FOOTER BRAND & LOGO STYLES
+   ===================================================== */
+
+footer {
+    background: rgba(7, 8, 14, 0.95);
+    border-top: 1px solid var(--glass-border);
+    padding: 60px 0 0;
+    position: relative;
+    z-index: 2;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 40px;
+    padding-bottom: 40px;
+}
+
+.footer-brand p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-top: 15px;
+    line-height: 1.7;
+    max-width: 280px;
+}
+
+.footer-logo {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px rgba(139,92,246,0.4));
+}
+
+.social-links {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--glass-border);
+    color: var(--text-secondary);
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    background: rgba(139,92,246,0.2);
+    border-color: var(--primary);
+    color: var(--primary-light);
+    transform: translateY(-3px);
+}
+
+.footer-links h3 {
+    font-family: var(--font-heading);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.footer-links ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-links ul li a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 14px;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.footer-links ul li a:hover {
+    color: var(--primary-light);
+    padding-left: 4px;
+}
+
+.footer-security h3 {
+    font-family: var(--font-heading);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.payment-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.pay-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-full);
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.security-text {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-muted);
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+.footer-bottom {
+    border-top: 1px solid var(--glass-border);
+    padding: 20px 20px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+/* Hero CTA Buttons */
+.hero-cta-buttons {
+    display: flex;
+    gap: 16px;
+    margin: 32px 0 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn-hero-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--primary), var(--cyan));
+    color: #fff;
+    padding: 16px 36px;
+    border-radius: var(--radius-full);
+    font-weight: 800;
+    font-size: 16px;
+    text-decoration: none;
+    transition: var(--transition);
+    box-shadow: 0 8px 30px rgba(139,92,246,0.4);
+    letter-spacing: -0.2px;
+}
+
+.btn-hero-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 50px rgba(139,92,246,0.6);
+    filter: brightness(1.1);
+}
+
+.btn-hero-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.08);
+    border: 1.5px solid rgba(255,255,255,0.18);
+    color: var(--text-primary);
+    padding: 16px 30px;
+    border-radius: var(--radius-full);
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    transition: var(--transition);
+    backdrop-filter: blur(10px);
+}
+
+.btn-hero-secondary:hover {
+    background: rgba(139,92,246,0.15);
+    border-color: var(--primary);
+    color: var(--primary-light);
+    transform: translateY(-2px);
+}
+
+/* Nav link with icon alignment */
+.nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Drawer styles */
+.mobile-drawer {
+    position: fixed;
+    top: 0;
+    right: -320px;
+    width: 300px;
+    height: 100vh;
+    background: rgba(12, 14, 22, 0.98);
+    backdrop-filter: blur(30px);
+    border-left: 1px solid var(--glass-border);
+    z-index: 9999;
+    transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    overflow-y: auto;
+}
+
+.mobile-drawer.active {
+    right: 0;
+}
+
+.drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.drawer-close {
+    background: rgba(255,255,255,0.08);
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    transition: var(--transition);
+}
+
+.drawer-close:hover {
+    background: rgba(139,92,246,0.2);
+    color: white;
+}
+
+.drawer-links {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 16px;
+    gap: 4px;
+    flex: 1;
+}
+
+.drawer-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 13px 16px;
+    border-radius: 12px;
+    transition: var(--transition);
+}
+
+.drawer-link:hover {
+    background: rgba(139,92,246,0.12);
+    color: var(--primary-light);
+    padding-left: 22px;
+}
+
+.drawer-btn {
+    margin-top: 20px;
+    justify-content: center;
+    padding: 14px 24px;
+}
+
+.drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+    z-index: 9998;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s;
+}
+
+.drawer-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Footer responsive adjustments */
+@media (max-width: 900px) {
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .hero-cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-hero-primary, .btn-hero-secondary {
+        width: 100%;
+        justify-content: center;
+        font-size: 15px;
+        padding: 14px 24px;
     }
 }
