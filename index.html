@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="UpSocial Pro - A plataforma #1 no Brasil para impulsionar seguidores, curtidas e visualizações no Instagram, TikTok, YouTube e Kwai com entrega imediata e 100% segura.">
+    <meta name="keywords" content="comprar seguidores instagram, comprar curtidas tiktok, visualizações reels, impulsionar redes sociais, upsocial pro">
+    <meta property="og:title" content="UpSocial Pro | Autoridade Máxima nas Redes Sociais">
+    <meta property="og:description" content="Aumente sua autoridade digital em minutos. Entrega rápida, sem necessidade de senha e com garantia de reposição de 30 dias.">
+    <meta property="og:type" content="website">
+    <title>UpSocial Pro | Autoridade Máxima nas Redes Sociais</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Environment Config Loader -->
+    <script src="env-config.js"></script>
+
+    <!-- Modern CSS Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Background Animated Blobs -->
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    <div class="bg-glow bg-glow-3"></div>
+
+    <!-- Announcement Bar -->
+    <div class="top-announcement">
+        <div class="container announcement-content">
+            <span class="badge-live"><i class="fa-solid fa-circle-dot pulse-icon"></i> SISTEMA OPERACIONAL</span>
+            <p>🔥 Promoção de Hoje: <strong>Até 40% OFF</strong> em todos os pacotes com Entrega Imediata & Reposição de <span class="env-guarantee">30</span> dias!</p>
+            <span class="support-speed"><i class="fa-solid fa-bolt"></i> Início em até 5min</span>
+        </div>
+    </div>
+
+    <!-- Sticky Header -->
+    <header id="main-header">
+        <div class="header-container">
+            <a href="#" class="logo">
+                <div class="logo-icon"><i class="fa-solid fa-rocket"></i></div>
+                <span>UpSocial<span class="highlight">Pro</span></span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="desktop-nav">
+                <a href="#plataformas" class="nav-link active">Serviços</a>
+                <a href="#calculadora" class="nav-link">Personalizar Pacote</a>
+                <a href="#vantagens" class="nav-link">Vantagens</a>
+                <a href="#como-funciona" class="nav-link">Como Funciona</a>
+                <a href="#depoimentos" class="nav-link">Depoimentos</a>
+                <a href="#faq" class="nav-link">Dúvidas</a>
+            </nav>
+
+            <div class="header-actions">
+                <button class="btn-schedule-nav" id="btn-open-schedule" title="Horários de Atendimento">
+                    <i class="fa-solid fa-clock"></i> <span>Horários</span>
+                </button>
+                <a href="#" target="_blank" rel="noopener" class="btn-support env-wa-link">
+                    <i class="fa-brands fa-whatsapp"></i> <span>Suporte VIP</span>
+                </a>
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Support Schedule Popover/Modal (Maisgram Feature) -->
+    <div class="schedule-popover" id="schedule-widget">
+        <div class="popover-header">
+            <h4><i class="fa-solid fa-headset"></i> Horários de Atendimento</h4>
+            <button class="popover-close" id="btn-close-schedule">&times;</button>
+        </div>
+        <div class="popover-body">
+            <p><i class="fa-solid fa-calendar-week"></i> <strong>Segunda a Sexta:</strong> 08:00h às 20:00h</p>
+            <p><i class="fa-solid fa-calendar-day"></i> <strong>Sábado:</strong> 09:00h às 18:00h</p>
+            <p><i class="fa-solid fa-star"></i> <strong>Domingos & Feriados:</strong> Plantão VIP no WhatsApp</p>
+            <a href="#" target="_blank" class="btn-primary popover-btn env-wa-link">
+                <i class="fa-brands fa-whatsapp"></i> Chamar Atendimento Agora
+            </a>
+        </div>
+    </div>
+
+    <!-- Mobile Drawer Nav -->
+    <div class="mobile-drawer" id="mobile-drawer">
+        <div class="drawer-header">
+            <a href="#" class="logo">
+                <div class="logo-icon"><i class="fa-solid fa-rocket"></i></div>
+                <span>UpSocial<span class="highlight">Pro</span></span>
+            </a>
+            <button class="drawer-close" id="drawer-close">&times;</button>
+        </div>
+        <nav class="drawer-links">
+            <a href="#plataformas" class="drawer-link"><i class="fa-solid fa-grid-2"></i> Todos os Serviços</a>
+            <a href="#calculadora" class="drawer-link"><i class="fa-solid fa-sliders"></i> Personalizar Pacote</a>
+            <a href="#vantagens" class="drawer-link"><i class="fa-solid fa-shield-halved"></i> Vantagens</a>
+            <a href="#como-funciona" class="drawer-link"><i class="fa-solid fa-list-check"></i> Como Funciona</a>
+            <a href="#depoimentos" class="drawer-link"><i class="fa-solid fa-star"></i> Depoimentos</a>
+            <a href="#faq" class="drawer-link"><i class="fa-solid fa-circle-question"></i> Dúvidas Frequentes</a>
+            <a href="#" target="_blank" rel="noopener" class="btn-primary drawer-btn env-wa-link">
+                <i class="fa-brands fa-whatsapp"></i> Atendimento via WhatsApp
+            </a>
+        </nav>
+    </div>
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container hero-wrapper">
+            <div class="hero-tag">
+                <i class="fa-solid fa-brain"></i> Inteligência Artificial de Distribuição Orgânica
+            </div>
+            
+            <div class="rating-badge-hero">
+                <span class="stars-gold"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                <strong>4.9 / 5.0</strong> • <span>+7.400 Avaliações Verificadas</span>
+            </div>
+
+            <h1>Conquiste <span class="gradient-text">Autoridade Máxima</span> nas Redes Sociais</h1>
+            <p class="hero-subtitle">
+                Evolua seu perfil profissional, alcance milhares de clientes e multiplique seu engajamento no Instagram, TikTok, YouTube e Kwai com modelos de IA de alta retenção.
+            </p>
+
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <span class="stat-number" id="counter-orders">185.400+</span>
+                    <span class="stat-label">Pedidos Entregues</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-card">
+                    <span class="stat-number">9x</span>
+                    <span class="stat-label">Mais Alcance Orgânico</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-card">
+                    <span class="stat-number"><span class="env-guarantee">30</span> Dias</span>
+                    <span class="stat-label">Garantia de Reposição</span>
+                </div>
+            </div>
+
+            <div class="trust-pills">
+                <span><i class="fa-solid fa-check"></i> Entrega Imediata</span>
+                <span><i class="fa-solid fa-check"></i> Perfis Reais e Ativos</span>
+                <span><i class="fa-solid fa-check"></i> Sigilo Absoluto</span>
+                <span><i class="fa-solid fa-check"></i> Suporte Humano 24/7</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Section: Platform Selector & Products Grid -->
+    <section id="plataformas" class="services-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Escolha sua Plataforma</h2>
+                <p>Selecione a rede social e o tipo de engajamento desejado para ver nossas ofertas exclusivas.</p>
+            </div>
+
+            <!-- Platform Buttons Slider/Grid -->
+            <div class="platform-bar-wrapper">
+                <div class="nav-platforms" id="platform-tabs">
+                    <button class="plat-btn active" data-platform="insta">
+                        <i class="fa-brands fa-instagram"></i>
+                        <span>Instagram</span>
+                    </button>
+                    <button class="plat-btn" data-platform="tiktok">
+                        <i class="fa-brands fa-tiktok"></i>
+                        <span>TikTok</span>
+                    </button>
+                    <button class="plat-btn" data-platform="kwai">
+                        <i class="fa-solid fa-play"></i>
+                        <span>Kwai</span>
+                    </button>
+                    <button class="plat-btn" data-platform="youtube">
+                        <i class="fa-brands fa-youtube"></i>
+                        <span>YouTube</span>
+                    </button>
+                    <button class="plat-btn" data-platform="telegram">
+                        <i class="fa-brands fa-telegram"></i>
+                        <span>Telegram</span>
+                    </button>
+                    <button class="plat-btn" data-platform="twitter">
+                        <i class="fa-brands fa-x-twitter"></i>
+                        <span>Twitter / X</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Filter Categories (Seguidores, Curtidas, Views, Comentários, Stories, Mensal IA) -->
+            <div class="filter-bar" id="category-filters">
+                <!-- Injected dynamically via app.js -->
+            </div>
+
+            <!-- Gender Segmentation Filter Bar -->
+            <div class="gender-filter-bar" id="gender-filter-bar">
+                <!-- Injected dynamically via app.js when category supports gender -->
+            </div>
+
+            <!-- Services Cards Grid -->
+            <div class="services-grid" id="services-cards-container">
+                <!-- Cards injected dynamically via app.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Order Calculator Section -->
+    <section id="calculadora" class="calculator-section">
+        <div class="container">
+            <div class="calc-card">
+                <div class="calc-header">
+                    <span class="calc-badge"><i class="fa-solid fa-sliders"></i> Personalização Avançada</span>
+                    <h2>Monte Seu Pacote sob Medida</h2>
+                    <p>Precisa de uma quantidade específica? Escolha exatamente o número desejado e receba um desconto automático imediato!</p>
+                </div>
+
+                <div class="calc-body">
+                    <div class="calc-inputs-grid">
+                        <div class="input-group">
+                            <label for="calc-platform-select"><i class="fa-solid fa-globe"></i> Plataforma</label>
+                            <select id="calc-platform-select" class="custom-select">
+                                <option value="insta">Instagram</option>
+                                <option value="tiktok">TikTok</option>
+                                <option value="kwai">Kwai</option>
+                                <option value="youtube">YouTube</option>
+                                <option value="telegram">Telegram</option>
+                                <option value="twitter">Twitter / X</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="calc-service-select"><i class="fa-solid fa-list-check"></i> Tipo de Serviço</label>
+                            <select id="calc-service-select" class="custom-select">
+                                <option value="seguidores">Seguidores Brasileiros</option>
+                                <option value="curtidas">Curtidas Reais</option>
+                                <option value="views">Visualizações (Views)</option>
+                                <option value="mensal">Assinatura Mensal IA</option>
+                                <option value="comentarios">Comentários Personalizados</option>
+                                <option value="stories">Stories & Live Views</option>
+                                <option value="compartilha">Compartilhamentos</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="slider-wrapper">
+                        <div class="slider-info">
+                            <span>Quantidade Desejada:</span>
+                            <span class="quantity-display" id="calc-quantity-val">1.000</span>
+                        </div>
+                        <input type="range" id="calc-range" min="100" max="50000" step="100" value="1000" class="custom-range">
+                        <div class="range-marks">
+                            <span>100</span>
+                            <span>10.000</span>
+                            <span>25.000</span>
+                            <span>50.000+</span>
+                        </div>
+                    </div>
+
+                    <div class="user-link-input-wrapper">
+                        <label for="calc-username-input"><i class="fa-solid fa-at"></i> Seu @usuário ou Link do Post/Canal:</label>
+                        <input type="text" id="calc-username-input" placeholder="ex: @seu.perfil ou https://instagram.com/..." class="custom-text-input">
+                    </div>
+
+                    <div class="calc-footer-summary">
+                        <div class="price-breakdown">
+                            <span class="discount-pill" id="calc-discount-tag">🔥 20% de Desconto Ativado</span>
+                            <div class="price-total">
+                                Total: <span class="total-amount" id="calc-total-price">R$ 40,00</span>
+                            </div>
+                        </div>
+                        <button class="btn-primary btn-calc-order" id="btn-order-custom">
+                            <i class="fa-brands fa-whatsapp"></i> Contratar Pacote Personalizado
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose UpSocial Pro (Maisgram & Turbine Inspired Benefits) -->
+    <section id="vantagens" class="benefits-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Por que turbinar com a UpSocial Pro?</h2>
+                <p>Veja as vantagens de escolher a plataforma líder em crescimento orgânico e autoridade digital no Brasil.</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <h3>Impulso no Algoritmo</h3>
+                    <p>Ao aumentar seus seguidores e interações, as plataformas recomendam mais o seu conteúdo na aba Explore e For You.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fa-solid fa-robot"></i></div>
+                    <h3>Automação Mensal IA</h3>
+                    <p>Cadastre seu perfil 1 única vez e receba curtidas e visualizações automaticamente a cada nova postagem durante 30 dias.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fa-solid fa-user-gear"></i></div>
+                    <h3>Segmentação por Gênero</h3>
+                    <p>Pioneiro no mercado: escolha receber audiência feminina ou masculina alinhada ao público-alvo do seu nicho.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fa-solid fa-lock"></i></div>
+                    <h3>Sem Senha & Sigilo Total</h3>
+                    <p>Privacidade em 1º lugar. Nunca solicitamos sua senha e nenhuma pessoa saberá que você contratou nossos serviços.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="como-funciona" class="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>Como Funciona?</h2>
+                <p>Processo simples, rápido e transparente em apenas 3 passos sem burocracia.</p>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-icon"><i class="fa-solid fa-hand-pointer"></i></div>
+                    <div class="step-number">01</div>
+                    <h3>Escolha o Pacote</h3>
+                    <p>Selecione a plataforma e o pacote que melhor atende suas metas de crescimento e engajamento.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-icon"><i class="fa-solid fa-link"></i></div>
+                    <div class="step-number">02</div>
+                    <h3>Informe seu @Usuário</h3>
+                    <p>Digite apenas seu nome de usuário ou link público. Jamais pedimos a sua senha!</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-icon"><i class="fa-solid fa-bolt-lightning"></i></div>
+                    <div class="step-number">03</div>
+                    <h3>Receba os Resultados</h3>
+                    <p>O sistema inicia o envio automaticamente em poucos minutos, aumentando sua autoridade de imediato.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials / Social Proof Section -->
+    <section id="depoimentos" class="testimonials-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Quem usa, recomenda!</h2>
+                <p>Confira a experiência de influenciadores, empresários e criadores de conteúdo que impulsionaram com a UpSocial Pro.</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-text">"Gastei rios de dinheiro com anúncios sem retorno. Com a UpSocial Pro alcancei a credibilidade que precisava para fechar parcerias comerciais. Entrega super rápida!"</p>
+                    <div class="user-info">
+                        <div class="avatar avatar-1">RA</div>
+                        <div>
+                            <h4>Rodrigo Almeida</h4>
+                            <span class="user-tag"><i class="fa-solid fa-circle-check"></i> Comprador Verificado • Instagram</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-text">"Serviço nota 1000! Assinei o pacote de Engajamento Mensal por IA no Instagram e todos os meus posts novos recebem curtidas e views em menos de 5 minutos."</p>
+                    <div class="user-info">
+                        <div class="avatar avatar-2">CM</div>
+                        <div>
+                            <h4>Camila Mendes</h4>
+                            <span class="user-tag"><i class="fa-solid fa-circle-check"></i> Assinante IA • TikTok</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-text">"O suporte pelo WhatsApp é atencioso e o sistema de reposição de 30 dias funciona de verdade. Passei de 500 para 10k seguidores mantendo a conta segura."</p>
+                    <div class="user-info">
+                        <div class="avatar avatar-3">GS</div>
+                        <div>
+                            <h4>Gabriel Santos</h4>
+                            <span class="user-tag"><i class="fa-solid fa-circle-check"></i> Comprador Verificado • Instagram</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Accordion Section -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Perguntas Frequentes</h2>
+                <p>Tire todas as suas dúvidas antes de realizar o seu pedido.</p>
+            </div>
+
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span><i class="fa-solid fa-circle-question"></i> Como funciona a Assinatura Mensal por IA?</span>
+                        <i class="fa-solid fa-chevron-down faq-arrow"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Nosso sistema de IA monitora seu perfil 24/7. Assim que você posta uma foto, Reels ou vídeo novo, a inteligência artificial detecta a publicação e entrega curtidas e visualizações fracionadas de forma orgânica ao longo do dia durante 30 dias.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span><i class="fa-solid fa-lock"></i> Preciso informar a minha senha?</span>
+                        <i class="fa-solid fa-chevron-down faq-arrow"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p><strong>NÃO!</strong> Jamais solicitamos sua senha ou dados de acesso. Precisamos apenas do seu nome de usuário público (@perfil) ou o link direto do post/vídeo.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span><i class="fa-solid fa-clock"></i> Quanto tempo leva para iniciar o pedido?</span>
+                        <i class="fa-solid fa-chevron-down faq-arrow"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>O processamento é automático e imediato. O envio costuma começar de 2 a 15 minutos após a confirmação do pagamento pelo WhatsApp.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span><i class="fa-solid fa-shield-heart"></i> O meu perfil corre risco de bloqueio ou banimento?</span>
+                        <i class="fa-solid fa-chevron-down faq-arrow"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutamente zero risco. Trabalhamos estritamente de acordo com métodos seguros de engajamento orgânico e gradual, sem violar as diretrizes das redes sociais.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span><i class="fa-solid fa-rotate-left"></i> E se houver queda nos seguidores? Existe garantia?</span>
+                        <i class="fa-solid fa-chevron-down faq-arrow"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sim! Todos os nossos pacotes de seguidores possuem <strong>Garantia de Reposição Grátis de <span class="env-guarantee">30</span> dias</strong>. Caso haja qualquer oscilação, basta chamar nosso suporte no WhatsApp e repomos sem custo extra.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <div class="logo-icon"><i class="fa-solid fa-rocket"></i></div>
+                    <span>UpSocial<span class="highlight">Pro</span></span>
+                </a>
+                <p>A maior e mais confiável agência de engajamento e autoridade digital do Brasil. Potencialize sua presença online com segurança total.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" target="_blank" aria-label="WhatsApp" class="env-wa-link"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h3>Plataformas</h3>
+                <ul>
+                    <li><a href="#plataformas" class="plat-footer-link" data-platform="insta"><i class="fa-brands fa-instagram"></i> Instagram Pro</a></li>
+                    <li><a href="#plataformas" class="plat-footer-link" data-platform="tiktok"><i class="fa-brands fa-tiktok"></i> TikTok Viral</a></li>
+                    <li><a href="#plataformas" class="plat-footer-link" data-platform="kwai"><i class="fa-solid fa-play"></i> Kwai Brasil</a></li>
+                    <li><a href="#plataformas" class="plat-footer-link" data-platform="youtube"><i class="fa-brands fa-youtube"></i> YouTube Canal</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h3>Navegação</h3>
+                <ul>
+                    <li><a href="#plataformas">Serviços</a></li>
+                    <li><a href="#calculadora">Calculadora de Pacotes</a></li>
+                    <li><a href="#vantagens">Vantagens</a></li>
+                    <li><a href="#como-funciona">Como Funciona</a></li>
+                    <li><a href="#depoimentos">Depoimentos</a></li>
+                    <li><a href="#faq">Central de Dúvidas</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-security">
+                <h3>Pagamento & Segurança</h3>
+                <div class="payment-badges">
+                    <span class="pay-pill"><i class="fa-solid fa-bolt"></i> PIX Instantâneo</span>
+                    <span class="pay-pill"><i class="fa-solid fa-credit-card"></i> Cartão de Crédito</span>
+                    <span class="pay-pill"><i class="fa-solid fa-lock"></i> SSL 256-bit</span>
+                </div>
+                <p class="security-text"><i class="fa-solid fa-shield"></i> Dados protegidos e transações criptografadas com sigilo garantido.</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom container">
+            <p>&copy; 2026 UpSocial Pro. Todos os direitos reservados. Suporte oficial via WhatsApp: <span id="env-phone-display">(44) 99169-0878</span>.</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Checkout Modal -->
+    <div id="checkout-modal" class="modal-overlay">
+        <div class="modal-card">
+            <button class="modal-close" id="btn-close-modal">&times;</button>
+            <div class="modal-header">
+                <div class="modal-badge"><i class="fa-solid fa-cart-shopping"></i> Resumo do Pedido</div>
+                <h3 id="modal-plan-title">INSTA 1.000 Seg. Brasileiros</h3>
+                <div class="modal-price" id="modal-plan-price">R$ 50,00</div>
+            </div>
+
+            <div class="modal-body">
+                <div class="modal-features" id="modal-features-list">
+                    <!-- Dynamic features -->
+                </div>
+
+                <div class="input-group modal-input-group">
+                    <label for="modal-user-input"><i class="fa-solid fa-user-check"></i> Informe seu @Usuário ou Link:</label>
+                    <input type="text" id="modal-user-input" placeholder="ex: @seu.perfil_oficial" class="custom-text-input">
+                    <span class="input-hint"><i class="fa-solid fa-lock"></i> Nunca pediremos sua senha!</span>
+                </div>
+
+                <div class="modal-trust-box">
+                    <div class="trust-item"><i class="fa-solid fa-bolt"></i> Início Imediato</div>
+                    <div class="trust-item"><i class="fa-solid fa-shield"></i> Reposição <span class="env-guarantee">30</span> Dias</div>
+                    <div class="trust-item"><i class="fa-solid fa-qrcode"></i> Pagamento no PIX</div>
+                </div>
+
+                <button class="btn-primary btn-modal-submit" id="btn-confirm-whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i> Finalizar Pedido no WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Live Floating Order Notification Ticker -->
+    <div id="sales-ticker" class="sales-ticker hidden">
+        <div class="ticker-avatar"><i class="fa-solid fa-fire"></i></div>
+        <div class="ticker-content">
+            <p id="ticker-text"><strong>Mateus S.</strong> comprou 1.000 Seguidores Instagram</p>
+            <span class="ticker-time" id="ticker-time">há 2 minutos • Verificado</span>
+        </div>
+        <button class="ticker-close" id="btn-close-ticker">&times;</button>
+    </div>
+
+    <!-- Floating WhatsApp Action Button -->
+    <a href="#" target="_blank" rel="noopener" class="floating-whatsapp env-wa-link" aria-label="Atendimento no WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="whatsapp-badge">1</span>
+    </a>
+
+    <!-- Custom JS Script -->
+    <script src="app.js"></script>
+</body>
+</html>

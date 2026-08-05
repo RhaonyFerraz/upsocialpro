@@ -1,0 +1,21 @@
+# Environment variables (Protect sensitive data)
+.env
+.env.local
+.env.production
+
+# Dependencies
+node_modules/
+package-lock.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
