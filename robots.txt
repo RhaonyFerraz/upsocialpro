@@ -1,0 +1,5 @@
+# UpSocial Pro - Robots.txt for Search Engines
+User-agent: *
+Allow: /
+
+Sitemap: https://upsocialpro.com.br/sitemap.xml
