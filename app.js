@@ -1078,6 +1078,15 @@ function processModalWhatsAppOrder() {
     const userInput = document.getElementById("modal-user-input").value.trim();
     const userRef = userInput !== "" ? userInput : "[Não informado]";
 
+    // Meta Pixel Conversion Event Tracking
+    if (window.fbq) {
+        window.fbq('track', 'Lead', {
+            content_name: `${selectedProductForModal.platformName} - ${selectedProductForModal.title}`,
+            value: selectedProductForModal.price,
+            currency: 'BRL'
+        });
+    }
+
     const messageText = `Olá! Quero contratar ${selectedProductForModal.platformName} ${selectedProductForModal.title} por R$ ${selectedProductForModal.price.toFixed(2).replace('.', ',')}.\n\n📌 Perfil/Link: ${userRef}`;
 
     const waUrl = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(messageText)}`;
