@@ -40,17 +40,20 @@
     <!-- Animated Particles Canvas -->
     <canvas id="particles-canvas"></canvas>
 
-    <!-- Announcement Bar -->
+    <!-- Announcement Bar with Scarcity Countdown Timer -->
     <div class="top-announcement">
         <div class="container announcement-content">
             <span class="badge-live">
                 <span class="live-dot"></span> SISTEMA ONLINE
             </span>
-            <p>🔥 Promoção de Hoje: <strong>Até 40% OFF</strong> em todos os pacotes • Entrega em até 5 minutos!</p>
-            <span class="support-speed">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                Início Imediato
-            </span>
+            <div class="announcement-promo-text">
+                🔥 Promoção de Hoje: <strong>Até 40% OFF</strong> em todos os pacotes
+            </div>
+            <div class="scarcity-timer-badge">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>Cupom 40% OFF expira em:</span>
+                <strong id="promo-countdown" class="timer-clock">14:59</strong>
+            </div>
         </div>
     </div>
 
@@ -252,6 +255,15 @@
             <div class="section-title">
                 <h2>Escolha sua Plataforma</h2>
                 <p>Selecione a rede social e o tipo de engajamento desejado para ver nossas ofertas exclusivas.</p>
+            </div>
+
+            <!-- Smart Service Search Bar -->
+            <div class="catalog-search-wrapper">
+                <div class="search-input-box">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    <input type="text" id="catalog-search-input" placeholder="Buscar serviço (ex: seguidores femininos, curtidas br, views reels...)" autocomplete="off">
+                    <button id="catalog-search-clear" class="search-clear-btn hidden" aria-label="Limpar busca">&times;</button>
+                </div>
             </div>
 
             <div class="platform-bar-wrapper">

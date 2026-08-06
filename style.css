@@ -150,12 +150,105 @@ body {
     z-index: 1001;
 }
 
-.announcement-content {
-    display: flex;
-    justify-content: space-between;
+.announcement-promo-text {
+    font-size: 13px;
+    color: var(--text-primary);
+}
+
+.scarcity-timer-badge {
+    display: inline-flex;
     align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
+    gap: 7px;
+    background: rgba(244, 63, 94, 0.18);
+    border: 1px solid rgba(244, 63, 94, 0.4);
+    color: #fda4af;
+    padding: 3px 12px;
+    border-radius: var(--radius-full);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.timer-clock {
+    background: #f43f5e;
+    color: #fff;
+    padding: 1px 7px;
+    border-radius: 4px;
+    font-family: monospace, var(--font-heading);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    box-shadow: 0 0 10px rgba(244, 63, 94, 0.5);
+    animation: clockPulse 1.5s infinite;
+}
+
+@keyframes clockPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.85; transform: scale(1.05); }
+}
+
+/* Smart Catalog Search Bar */
+.catalog-search-wrapper {
+    max-width: 580px;
+    margin: 0 auto 30px;
+}
+
+.search-input-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-input-box svg {
+    position: absolute;
+    left: 18px;
+    color: var(--primary-light);
+    pointer-events: none;
+}
+
+.search-input-box input {
+    width: 100%;
+    background: rgba(18, 20, 32, 0.7);
+    border: 1.5px solid var(--glass-border);
+    border-radius: var(--radius-full);
+    padding: 14px 44px 14px 48px;
+    color: var(--text-primary);
+    font-size: 14px;
+    font-weight: 500;
+    outline: none;
+    backdrop-filter: blur(10px);
+    transition: var(--transition);
+}
+
+.search-input-box input:focus {
+    border-color: var(--primary-light);
+    box-shadow: 0 0 20px var(--primary-glow);
+    background: rgba(25, 28, 45, 0.9);
+}
+
+.search-clear-btn {
+    position: absolute;
+    right: 14px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: var(--text-secondary);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.search-clear-btn:hover {
+    background: var(--rose);
+    color: #fff;
+}
+
+.search-clear-btn.hidden {
+    display: none;
 }
 
 .badge-live {

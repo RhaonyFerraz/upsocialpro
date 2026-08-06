@@ -734,6 +734,8 @@ document.addEventListener("DOMContentLoaded", () => {
     renderPlatformCategories();
     renderProducts();
     setupCalculator();
+    setupScarcityTimer();
+    setupCatalogSearch();
     if (CONFIG.enableSalesTicker) setupSalesTicker();
     setupCounters();
 });
@@ -1252,3 +1254,163 @@ function setupCounters() {
         }
     }, 80);
 }
+
+// --- SCARCITY COUNTDOWN TIMER ---
+function setupScarcityTimer() {
+    const timerEl = document.getElementById("promo-countdown");
+    if (!timerEl) return;
+
+    let endTimestamp = sessionStorage.getItem("upsocial_timer_end");
+    const now = Date.now();
+
+    if (!endTimestamp || parseInt(endTimestamp, 10) <= now) {
+        endTimestamp = now + (14 * 60 + 59) * 1000;
+        sessionStorage.setItem("upsocial_timer_end", endTimestamp);
+    } else {
+        endTimestamp = parseInt(endTimestamp, 10);
+    }
+
+    function updateClock() {
+        const remaining = Math.max(0, Math.floor((endTimestamp - Date.now()) / 1000));
+        
+        if (remaining <= 0) {
+            endTimestamp = Date.now() + (15 * 60) * 1000;
+            sessionStorage.setItem("upsocial_timer_end", endTimestamp);
+        }
+
+        const mins = Math.floor(remaining / 60);
+        const secs = remaining % 60;
+        timerEl.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    updateClock();
+    setInterval(updateClock, 1000);
+}
+
+// --- SMART CATALOG SEARCH BAR ---
+function setupCatalogSearch() {
+    const searchInput = document.getElementById("catalog-search-input");
+    const clearBtn = document.getElementById("catalog-search-clear");
+    const cardsContainer = document.getElementById("services-cards-container");
+
+    if (!searchInput) return;
+
+    searchInput.addEventListener("input", () => {
+        const query = searchInput.value.trim().toLowerCase();
+        
+        if (clearBtn) {
+            if (query.length > 0) clearBtn.classList.remove("hidden");
+            else clearBtn.classList.add("hidden");
+        }
+
+        if (query.length < 2) {
+            renderProducts();
+            return;
+        }
+
+        let matchingProducts = [];
+
+        Object.keys(CATALOG_DATA).forEach(platKey => {
+            const platObj = CATALOG_DATA[platKey];
+            const platformName = getPlatformDisplayName(platKey);
+
+            Object.keys(platObj.products).forEach(catKey => {
+                const catProducts = platObj.products[catKey];
+                
+                let prodsArray = [];
+                if (Array.isArray(catProducts)) {
+                    prodsArray = catProducts;
+                } else if (typeof catProducts === "object") {
+                    Object.keys(catProducts).forEach(g => {
+                        prodsArray = prodsArray.concat(catProducts[g]);
+                    });
+                }
+
+                prodsArray.forEach((prod, idx) => {
+                    const matchText = `${platformName} ${prod.title} ${prod.tier} ${prod.badge || ''} ${prod.features.join(" ")}`.toLowerCase();
+                    if (matchText.includes(query)) {
+                        matchingProducts.push({
+                            platformKey: platKey,
+                            platformName: platformName,
+                            categoryKey: catKey,
+                            product: prod,
+                            index: idx
+                        });
+                    }
+                });
+            });
+        });
+
+        if (!cardsContainer) return;
+        cardsContainer.innerHTML = "";
+
+        if (matchingProducts.length === 0) {
+            cardsContainer.innerHTML = `
+                <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--text-secondary);">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--primary-light)" stroke-width="2" style="margin-bottom: 15px;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    <p style="font-size: 16px; font-weight: 700;">Nenhum pacote encontrado para "${query}"</p>
+                    <p style="font-size: 13px; color: var(--text-muted); margin-top: 5px;">Tente pesquisar por "seguidores", "curtidas", "views", "feminino", "tiktok" ou "youtube".</p>
+                </div>
+            `;
+            return;
+        }
+
+        matchingProducts.forEach(item => {
+            const prod = item.product;
+            const card = document.createElement("div");
+            card.className = "s-card";
+
+            let ribbonHtml = "";
+            if (prod.badge) {
+                let ribbonClass = "s-card-ribbon";
+                if (prod.badge.includes("POPULAR")) ribbonClass += " popular";
+                if (prod.badge.includes("RECOMENDADO")) ribbonClass += " recomendado";
+                if (prod.badge.includes("VENDIDO") || prod.badge.includes("MELHOR") || prod.badge.includes("AUTOMAÇÃO")) ribbonClass += " best-price";
+                ribbonHtml = `<div class="${ribbonClass}">${prod.badge}</div>`;
+            }
+
+            const featuresHtml = prod.features.map(f => `<li><i class="fa-solid fa-check-circle"></i> ${f}</li>`).join("");
+            const oldPriceHtml = prod.oldPrice ? `<span class="price-strikethrough">De R$ ${prod.oldPrice.toFixed(2).replace('.', ',')} por</span>` : `<span class="price-currency">Valor Promoção</span>`;
+
+            const techSpecsHtml = `
+                <div class="card-tech-specs">
+                    <span class="spec-pill"><i class="fa-solid fa-bolt"></i> ${prod.speed || 'Início Imediato'}</span>
+                    <span class="spec-pill"><i class="fa-solid fa-location-dot"></i> ${item.platformName}</span>
+                </div>
+            `;
+
+            card.innerHTML = `
+                ${ribbonHtml}
+                <div>
+                    <div class="card-header-info">
+                        <div class="card-tier-name">${item.platformName} • ${prod.tier}</div>
+                        <h3 class="card-title">${prod.title}</h3>
+                    </div>
+                    ${techSpecsHtml}
+                    <ul class="card-features">
+                        ${featuresHtml}
+                    </ul>
+                </div>
+                <div class="price-box">
+                    <div class="price-amount">
+                        ${oldPriceHtml}
+                        <span class="price-val">R$ ${prod.price.toFixed(2).replace('.', ',')}</span>
+                    </div>
+                    <button class="buy-btn" onclick="openCheckoutModal('${item.platformKey}', '${item.categoryKey}', 'todos', ${item.index})">
+                        Contratar <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            `;
+            cardsContainer.appendChild(card);
+        });
+    });
+
+    if (clearBtn) {
+        clearBtn.addEventListener("click", () => {
+            searchInput.value = "";
+            clearBtn.classList.add("hidden");
+            renderProducts();
+        });
+    }
+}
+
