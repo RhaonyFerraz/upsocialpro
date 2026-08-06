@@ -15,7 +15,7 @@ window.ENV = {
     ENABLE_CUSTOM_CALCULATOR: true,
     
     // Analytics & Telemetry Tracking IDs
-    MICROSOFT_CLARITY_ID: "", // Fill with Clarity Project ID (ex: "k8x9m2p1q5")
+    MICROSOFT_CLARITY_ID: "xydca8l037", // Active Clarity Project ID
     GOOGLE_ANALYTICS_ID: "",  // Fill with GA4 Measurement ID (ex: "G-XXXXXXXXXX")
     SENTRY_DSN: ""            // Fill with Sentry DSN URL
 };
