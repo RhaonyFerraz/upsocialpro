@@ -7,7 +7,7 @@
     <meta name="keywords" content="comprar seguidores instagram, comprar curtidas tiktok, visualizações reels, impulsionar redes sociais, upsocial pro">
     <meta property="og:title" content="UpSocial Pro | Autoridade Máxima nas Redes Sociais">
     <meta property="og:description" content="Aumente sua autoridade digital em minutos. Entrega rápida, sem necessidade de senha e com garantia de reposição de 30 dias.">
-    <meta property="og:image" content="logo.png">
+    <meta property="og:image" content="logo.webp">
     <meta property="og:type" content="website">
     <title>UpSocial Pro | Autoridade Máxima nas Redes Sociais</title>
     
@@ -18,6 +18,10 @@
     
     <!-- FontAwesome 6 Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Preload Critical Visual Assets -->
+    <link rel="preload" href="logo.webp" as="image">
+    <link rel="preload" href="hero-bg.webp" as="image">
     
     <!-- Environment Config Loader -->
     <script src="env-config.js"></script>
@@ -55,7 +59,7 @@
         <div class="header-container">
             <!-- Logo with actual image -->
             <a href="#" class="logo">
-                <img src="logo.png" alt="UpSocial Pro" class="logo-img">
+                <img src="logo.webp" alt="UpSocial Pro" class="logo-img">
             </a>
 
             <!-- Desktop Nav -->
@@ -136,7 +140,7 @@
     <!-- Mobile Drawer Nav -->
     <div class="mobile-drawer" id="mobile-drawer">
         <div class="drawer-header">
-            <img src="logo.png" alt="UpSocial Pro" class="logo-img" style="height:36px">
+            <img src="logo.webp" alt="UpSocial Pro" class="logo-img" style="height:36px">
             <button class="drawer-close" id="drawer-close">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
             </button>
@@ -571,7 +575,7 @@
     <footer>
         <div class="container footer-content">
             <div class="footer-brand">
-                <img src="logo.png" alt="UpSocial Pro" class="footer-logo">
+                <img src="logo.webp" alt="UpSocial Pro" class="footer-logo">
                 <p>A maior e mais confiável agência de engajamento e autoridade digital do Brasil. Potencialize sua presença online com segurança total.</p>
                 <div class="social-links">
                     <a href="#" aria-label="Instagram">
@@ -729,7 +733,8 @@
 
         function init() {
             particles = [];
-            for (let i = 0; i < 80; i++) particles.push(new Particle());
+            const count = w < 768 ? 30 : 65;
+            for (let i = 0; i < count; i++) particles.push(new Particle());
         }
 
         function draw() {
