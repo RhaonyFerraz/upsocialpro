@@ -12,8 +12,24 @@ window.ENV = {
     MIN_ORDER_VALUE: "4.00",
     TOTAL_ORDERS_DELIVERED: "185400",
     ENABLE_SALES_TICKER: true,
-    ENABLE_CUSTOM_CALCULATOR: true
+    ENABLE_CUSTOM_CALCULATOR: true,
+    
+    // Analytics & Telemetry Tracking IDs
+    MICROSOFT_CLARITY_ID: "", // Fill with Clarity Project ID (ex: "k8x9m2p1q5")
+    GOOGLE_ANALYTICS_ID: "",  // Fill with GA4 Measurement ID (ex: "G-XXXXXXXXXX")
+    SENTRY_DSN: ""            // Fill with Sentry DSN URL
 };
+
+// Helper function to initialize Microsoft Clarity dynamically
+function initMicrosoftClarity(clarityId) {
+    if (!clarityId || clarityId.trim() === "") return;
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", clarityId.trim());
+    console.log("🎥 [Clarity] Microsoft Clarity gravando sessões ativamente:", clarityId);
+}
 
 // Asynchronously load and parse local .env file if available over HTTP/HTTPS
 (async function loadEnvFile() {
@@ -28,7 +44,6 @@ window.ENV = {
                     const parts = trimmed.split('=');
                     const key = parts[0].trim();
                     let val = parts.slice(1).join('=').trim();
-                    // Strip quotes if present
                     if ((val.startsWith('"') && val.endsWith('"')) || (val.startsWith("'") && val.endsWith("'"))) {
                         val = val.slice(1, -1);
                     }
@@ -41,5 +56,10 @@ window.ENV = {
         }
     } catch (err) {
         console.warn("⚠️ [.env] Usando valores padrão do ambiente:", err);
+    }
+
+    // Auto-start analytics if IDs are configured
+    if (window.ENV.MICROSOFT_CLARITY_ID) {
+        initMicrosoftClarity(window.ENV.MICROSOFT_CLARITY_ID);
     }
 })();
