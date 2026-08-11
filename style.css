@@ -321,9 +321,10 @@ header {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1240px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 24px;
+    gap: 32px;
 }
 
 .logo {
@@ -331,6 +332,7 @@ header {
     align-items: center;
     text-decoration: none;
     transition: var(--transition);
+    margin-right: 15px;
 }
 
 .logo:hover {
@@ -339,7 +341,7 @@ header {
 }
 
 .logo-img {
-    height: 44px;
+    height: 40px;
     width: auto;
     object-fit: contain;
     display: block;
@@ -366,7 +368,7 @@ header {
 .desktop-nav {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 28px;
 }
 
 .nav-link {
@@ -384,14 +386,7 @@ header {
 }
 
 .nav-link.active::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, var(--primary), var(--cyan));
-    border-radius: var(--radius-full);
+    display: none;
 }
 
 .header-actions {
