@@ -1054,6 +1054,13 @@ header {
     font-size: 12px;
 }
 
+.card-features li .feat-icon,
+.feat-icon {
+    flex-shrink: 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+
 .price-box {
     border-top: 1px solid var(--glass-border);
     padding-top: 20px;

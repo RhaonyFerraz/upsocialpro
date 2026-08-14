@@ -988,7 +988,7 @@ function renderProducts() {
             ribbonHtml = `<div class="${ribbonClass}">${prod.badge}</div>`;
         }
 
-        const featuresHtml = prod.features.map(f => `<li><i class="fa-solid fa-check-circle"></i> ${f}</li>`).join("");
+        const featuresHtml = prod.features.map(f => `<li><svg class="feat-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="rgba(16,185,129,0.18)" stroke="#10b981" stroke-width="1.5"/><polyline points="8 12 11 15 16 9" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> ${f}</li>`).join("");
 
         // Original price strikethrough logic
         const oldPriceHtml = prod.oldPrice ? `<span class="price-strikethrough">De R$ ${prod.oldPrice.toFixed(2).replace('.', ',')} por</span>` : `<span class="price-currency">Valor Promoção</span>`;
@@ -1056,7 +1056,7 @@ function openCheckoutModal(platform, category, genderKey, productIndex) {
 
     if (modalFeaturesList) {
         modalFeaturesList.innerHTML = selectedProductForModal.features
-            .map(f => `<p><i class="fa-solid fa-circle-check"></i> ${f}</p>`)
+            .map(f => `<p><svg class="feat-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="rgba(16,185,129,0.18)" stroke="#10b981" stroke-width="1.5"/><polyline points="8 12 11 15 16 9" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> ${f}</p>`)
             .join("");
     }
 
@@ -1378,7 +1378,7 @@ function setupCatalogSearch() {
                 ribbonHtml = `<div class="${ribbonClass}">${prod.badge}</div>`;
             }
 
-            const featuresHtml = prod.features.map(f => `<li><i class="fa-solid fa-check-circle"></i> ${f}</li>`).join("");
+            const featuresHtml = prod.features.map(f => `<li><svg class="feat-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="rgba(16,185,129,0.18)" stroke="#10b981" stroke-width="1.5"/><polyline points="8 12 11 15 16 9" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> ${f}</li>`).join("");
             const oldPriceHtml = prod.oldPrice ? `<span class="price-strikethrough">De R$ ${prod.oldPrice.toFixed(2).replace('.', ',')} por</span>` : `<span class="price-currency">Valor Promoção</span>`;
 
             const techSpecsHtml = `
