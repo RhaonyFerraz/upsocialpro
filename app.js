@@ -23,6 +23,21 @@ const CONFIG = {
 // Current Gender Filter state for targeted followers
 let currentGender = "todos"; // "todos", "feminino", "masculino"
 
+// Maps FontAwesome class names to inline SVGs for category filter buttons
+function getCatIconSVG(faClass) {
+    const icons = {
+        "fa-users": `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+        "fa-heart": `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`,
+        "fa-eye": `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>`,
+        "fa-robot": `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M12 2v4"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/><circle cx="9" cy="16" r="1" fill="currentColor"/><circle cx="15" cy="16" r="1" fill="currentColor"/></svg>`,
+        "fa-comments": `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`,
+        "fa-tower-broadcast": `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12" y2="20" stroke-linecap="round" stroke-width="3"/></svg>`,
+        "fa-share-nodes": `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>`,
+        "fa-thumbs-up": `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z"/><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>`
+    };
+    return icons[faClass] || `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>`;
+}
+
 // --- ENHANCED PRODUCT CATALOG DATABASE (MAISGRAM & TURBINE INSPIRED) ---
 const CATALOG_DATA = {
     insta: {
@@ -907,7 +922,7 @@ function renderPlatformCategories() {
     categories.forEach(cat => {
         const btn = document.createElement("button");
         btn.className = `filter-btn ${cat.id === currentCategory ? 'active' : ''}`;
-        btn.innerHTML = `<i class="fa-solid ${cat.icon}"></i> ${cat.label}`;
+        btn.innerHTML = `${getCatIconSVG(cat.icon)} ${cat.label}`;
         btn.addEventListener("click", () => {
             document.querySelectorAll("#category-filters .filter-btn").forEach(b => b.classList.remove("active"));
             btn.classList.add("active");
@@ -930,15 +945,15 @@ function renderGenderFilterBar() {
     if (currentCatObj && currentCatObj.hasGenderFilter) {
         genderContainer.style.display = "flex";
         genderContainer.innerHTML = `
-            <span class="gender-title"><i class="fa-solid fa-venus-mars"></i> Segmentação por Gênero:</span>
+            <span class="gender-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="4"/><path d="M11 3v2M11 17v2M3 11h2M17 11h2"/><circle cx="17" cy="7" r="3"/><line x1="19.5" y1="4.5" x2="22" y2="2"/><line x1="22" y1="2" x2="19" y2="2"/><line x1="22" y1="2" x2="22" y2="5"/></svg> Segmentação por Gênero:</span>
             <button class="gender-btn ${currentGender === 'todos' ? 'active' : ''}" onclick="setGenderFilter('todos')">
-                <i class="fa-solid fa-users"></i> Todos os Perfis
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> Todos os Perfis
             </button>
             <button class="gender-btn ${currentGender === 'feminino' ? 'active' : ''}" onclick="setGenderFilter('feminino')">
-                <i class="fa-solid fa-venus"></i> Feminino ♀
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="5"/><line x1="12" y1="13" x2="12" y2="21"/><line x1="9" y1="18" x2="15" y2="18"/></svg> Feminino ♀
             </button>
             <button class="gender-btn ${currentGender === 'masculino' ? 'active' : ''}" onclick="setGenderFilter('masculino')">
-                <i class="fa-solid fa-mars"></i> Masculino ♂
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="14" r="5"/><line x1="21" y1="3" x2="15" y2="9"/><polyline points="16 3 21 3 21 8"/></svg> Masculino ♂
             </button>
         `;
     } else {
@@ -968,7 +983,7 @@ function renderProducts() {
     if (!productsList || productsList.length === 0) {
         cardsContainer.innerHTML = `
             <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--text-secondary);">
-                <i class="fa-solid fa-clock-rotate-left" style="font-size: 32px; margin-bottom: 15px; color: var(--primary-light);"></i>
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--primary-light)" stroke-width="1.5" style="margin-bottom:15px"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.41"/></svg>
                 <p style="font-size: 16px; font-weight: 700;">Novos pacotes para esta categoria estarão disponíveis em breve!</p>
             </div>
         `;
@@ -996,8 +1011,8 @@ function renderProducts() {
         // Technical specs pills
         const techSpecsHtml = `
             <div class="card-tech-specs">
-                <span class="spec-pill"><i class="fa-solid fa-bolt"></i> ${prod.speed || 'Início Imediato'}</span>
-                <span class="spec-pill"><i class="fa-solid fa-location-dot"></i> ${prod.geo || 'Brasil'}</span>
+                <span class="spec-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="#06b6d4" stroke="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> ${prod.speed || 'Início Imediato'}</span>
+                <span class="spec-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> ${prod.geo || 'Brasil'}</span>
             </div>
         `;
 
@@ -1019,7 +1034,7 @@ function renderProducts() {
                     <span class="price-val">R$ ${prod.price.toFixed(2).replace('.', ',')}</span>
                 </div>
                 <button class="buy-btn" onclick="openCheckoutModal('${currentPlatform}', '${currentCategory}', '${currentGender}', ${index})">
-                    Contratar <i class="fa-solid fa-arrow-right"></i>
+                    Contratar <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                 </button>
             </div>
         `;
@@ -1383,8 +1398,8 @@ function setupCatalogSearch() {
 
             const techSpecsHtml = `
                 <div class="card-tech-specs">
-                    <span class="spec-pill"><i class="fa-solid fa-bolt"></i> ${prod.speed || 'Início Imediato'}</span>
-                    <span class="spec-pill"><i class="fa-solid fa-location-dot"></i> ${item.platformName}</span>
+                    <span class="spec-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="#06b6d4" stroke="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> ${prod.speed || 'Início Imediato'}</span>
+                    <span class="spec-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> ${item.platformName}</span>
                 </div>
             `;
 
@@ -1406,7 +1421,7 @@ function setupCatalogSearch() {
                         <span class="price-val">R$ ${prod.price.toFixed(2).replace('.', ',')}</span>
                     </div>
                     <button class="buy-btn" onclick="openCheckoutModal('${item.platformKey}', '${item.categoryKey}', 'todos', ${item.index})">
-                        Contratar <i class="fa-solid fa-arrow-right"></i>
+                        Contratar <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                     </button>
                 </div>
             `;
