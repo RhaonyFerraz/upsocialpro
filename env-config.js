@@ -3,7 +3,7 @@
    ========================================================================== */
 
 window.ENV = {
-    WHATSAPP_NUMBER: "5544991690878",
+    WHATSAPP_NUMBER: "5544991639749",
     SUPPORT_EMAIL: "suporte@upsocialpro.com.br",
     SITE_NAME: "UpSocial Pro",
     SITE_TAGLINE: "Autoridade Máxima nas Redes Sociais",

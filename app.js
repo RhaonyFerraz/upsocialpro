@@ -9,7 +9,7 @@ function getEnv(key, fallback) {
 
 // Global Config populated from .env
 const CONFIG = {
-    whatsappNumber: getEnv("WHATSAPP_NUMBER", "5544991690878"),
+    whatsappNumber: getEnv("WHATSAPP_NUMBER", "5544991639749"),
     supportEmail: getEnv("SUPPORT_EMAIL", "suporte@upsocialpro.com.br"),
     siteName: getEnv("SITE_NAME", "UpSocial Pro"),
     guaranteeDays: getEnv("GUARANTEE_DAYS", "30"),
